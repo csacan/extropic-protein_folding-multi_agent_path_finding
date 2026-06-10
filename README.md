@@ -26,6 +26,8 @@ Both projects share a structure:
 The HP lattice-protein model encoded as a Potts EBM: each residue is a categorical variable
 over lattice sites; energy rewards H–H contacts subject to a self-avoiding-walk backbone.
 
+![Folding contact-frequency matrix — folds sampled by THRML (left) vs the learned RBM (middle); per-pair correlation 0.997 (right)](protein/ebm_rbm.png)
+
 **Highlights** (full details in [`protein/README.md`](protein/README.md) and [`protein/RESULTS.md`](protein/RESULTS.md)):
 - **Correct sampling** — sampled vs exact Boltzmann distribution: total-variation **0.007**.
 - **Folding thermodynamics** — specific heat C(T), native-contact fraction Q(T), R_g collapse,
@@ -46,6 +48,10 @@ Robots on a space-time grid encoded as a heterogeneous EBM: agent positions are 
 spins over cells/time; collisions and illegal moves are energy penalties; start/goal are
 **clamped** and collision-free trajectories are **sampled** — solving a planning problem by
 sampling instead of search.
+
+![Sampled collision-free plan for an 8-agent bottleneck instance](mapf/mapf_hard_success.gif)
+
+![Solvability phase transition: success rate collapses as agent density rises](mapf/study_mapf.png)
 
 **Highlights** (full details in [`mapf/REPORT.md`](mapf/REPORT.md)):
 - **Encoding + exact validation** — space-time Potts EBM, validated against exact enumeration
